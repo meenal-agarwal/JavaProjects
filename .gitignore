@@ -23,3 +23,7 @@ hs_err_pid*
 
 # Not Required Folders
 bin
+.DS_Store
+.classpath
+.settings
+.project

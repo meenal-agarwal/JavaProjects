@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.example.org/StudentSchema" 
+xmlns:tns="http://www.example.org/StudentSchema" 
+elementFormDefault="qualified">
+
+<complexType name="studtype">
+	<sequence>
+	 	<element name="stu" type="tns:stutype"></element>
+	</sequence>
+</complexType>
+
+<complexType name="stutype">
+	<sequence>
+	 	<element name="name" type="string"></element>
+	 	<element name="sal" type="integer"></element>
+	</sequence>
+	<attribute name="aid" type="ID" use="required"></attribute>
+</complexType>
+
+<element name="globalstud" type="tns:studtype"></element>
+</schema>
