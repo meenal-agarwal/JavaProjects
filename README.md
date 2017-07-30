@@ -1,1 +1,1 @@
-# JavaProjects
+# JavaProjects for Learning
