@@ -3,9 +3,10 @@ package java8.lambda.basics;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
-public class Unit1ExerciseJava8Predicate {
+public class Unit1ExerciseJava8Consumer {
 
 	public static void main(String[] args) {
 		
@@ -23,23 +24,23 @@ public class Unit1ExerciseJava8Predicate {
 	
 	//  Step2: Create a method that prints all elements in the list
 		System.out.println("Print all soretd Persons by last name");
-		printConditionally(people, p -> true);
+		performConditionally(people, p -> true, p -> System.out.println(p));
 		System.out.println("\n");
 		
 	//  Step3: Create a method that prints all people that have last name beginning with A
 		System.out.println("Print person with last name beginning with A");
-		printConditionally(people, p -> p.getLastName().startsWith("A"));
+		performConditionally(people, p -> p.getLastName().startsWith("A"), p -> System.out.println(p));
 		System.out.println("\n");
 
 	//  Step4: Create a method that prints all people that have first name beginning with A
 		System.out.println("Print person with first name beginning with A");
-		printConditionally(people, p -> p.getFirstName().startsWith("A"));
+		performConditionally(people, p -> p.getFirstName().startsWith("A"), p -> System.out.println(p.getFirstName()));
 	}
 
-	public static void printConditionally(List<Person> people, Predicate<Person> predicate){
+	public static void performConditionally(List<Person> people, Predicate<Person> predicate, Consumer<Person> consumer){
 		for(Person p : people){
 			if(predicate.test(p)){ 
-			System.out.println(p);
+				consumer.accept(p);;
 			}
 		}
 	}
